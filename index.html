@@ -3,7 +3,7 @@
 <head>
     <meta name="author" content="神林">
     <meta name="generator" content="JetBrains PhpStorm">
-    <meta name="copyright" content="Copyright='DESMG(www.desmg.com) All Rigths Reserved.'; QQ=773933146; Phone=18251554183; Producer=DESMG">
+    <meta name="copyright" content="Copyright='DESMG(www.desmg.com) All Rigths Reserved.'; QQ=773933146; Telegram=jyxjjj(https://t.me/jyxjjj); Producer=DESMG">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Mua~</title>
     <link href="https://www.desmg.com/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" rev="stylesheet">
@@ -107,9 +107,39 @@
 <script src="https://www.desmg.com/resources/jquery/js/jquery.min.js"></script>
 <script src="https://www.desmg.com/resources/desmg/js/countdown.js"></script>
 <script>
+    let thedate = new Date();
+    let year1, year2, month1, month2, date1, date2, hour1, hour2;
+    
+    year1 = thedate.getFullYear();
+    year2 = thedate.getFullYear();
+    month1 = thedate.getMonth() + 1;
+    month2 = thedate.getMonth() + 1;
+    date1 = thedate.getDate();
+    date2 = thedate.getDate();
+    hour1 = thedate.getHours();
+    hour2 = thedate.getHours();
+    
+    if(month1 > 10){year1++;}else if(month1 == 10){
+        if(date1 > 15){year1++;}else if(date1 == 15){
+            if(hour1 >= 18){
+                year1++;
+            }
+        }
+    }
+    if(month2 > 12){year2++;}else if(month2 == 12){
+        if(date2 > 19){year2++;}else if(date2 == 19){
+            if(hour2 >= 11){
+                year2++;
+            }
+        }
+    }
+    
+    year1 = year1.toString() + "-10-15 18:00:00";
+    year2 = year2.toString() + "-12-19 11:00:00";
+    
     $.desmg.countdown.initDoms($('#met_day'), $('#met_hour'), $('#met_minute'), $('#met_second'), "2018-10-05 12:39:59", false);
-    $.desmg.countdown.initDoms($('#birth_day'), $('#birth_hour'), $('#birth_minute'), $('#birth_second'), "2021-10-15 18:00:00", true);
-    $.desmg.countdown.initDoms($('#birth_day2'), $('#birth_hour2'), $('#birth_minute2'), $('#birth_second2'), "2021-12-19 11:00:00", true);
+    $.desmg.countdown.initDoms($('#birth_day'), $('#birth_hour'), $('#birth_minute'), $('#birth_second'), year1, true);
+    $.desmg.countdown.initDoms($('#birth_day2'), $('#birth_hour2'), $('#birth_minute2'), $('#birth_second2'), year2, true);
 </script>
 </body>
 </html>
